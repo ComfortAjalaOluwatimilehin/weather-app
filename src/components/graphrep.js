@@ -25,7 +25,7 @@ class GraphRep extends Component{
         }
         renderPlaceholder(){
 
-              return this.state.complete ? (
+              return !this.state.complete ? (
                 <div>
                       <h1>We are working on it</h1>
                 </div>
