@@ -35,7 +35,7 @@ class Canvas extends Component{
             return this.getWeatherReport(lat, lng)
         }
         getWeatherReport(lat, lng){
-              var requestUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&appid=${SETTINGS.openweatherid}&units=imperial`
+              var requestUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&appid=${SETTINGS.openweatherid}&units=imperial`
               let that = this
               fetch(requestUrl)
               .then(response=>response.json())
