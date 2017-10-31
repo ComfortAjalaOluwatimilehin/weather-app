@@ -1,0 +1,212 @@
+@import "colors.css";
+@import "general.css";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+html, body{
+    margin:0;padding:0;
+    width:100%;
+    box-sizing: border-box;
+    overflow:hidden;
+}
+
+div{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#root {
+    width:100%;min-height:100vh;
+    background-color:var(--backgroundColor);
+    position: relative;
+}
+#canvas{
+    width:90%;
+    height:90vh;
+    margin:auto;
+    background-color:var(--canvasbackgroundColor);
+    position: absolute;
+    top:5vh;left: 5vw;
+    box-shadow:0px 30px 90px 30px grey;
+}
+
+#infobox{
+      position:absolute;
+      display:block;
+      width:var(--infoboxWidth);
+      min-height: var(--infoboxHeight);
+      max-height: 400px;
+      background-color:white;
+      text-align: center;
+      color:white;
+      top: calc((100% - var(--infoboxHeight)) / 2);
+      left: calc((100% - var(--infoboxWidth)) / 2);
+      right:0;bottom:0;
+      background-color: var(--infoboxColor);
+      box-shadow: 0px 0px 87px 3px var(--infoboxShadow);
+      transform:translateY(300px);
+      transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+      opacity: 0;
+}
+
+
+.infoboxbuttons {
+    width: var(--widthandheightofinfoboxbuttons);
+    height: var(--widthandheightofinfoboxbuttons);
+    background: var(--infoboxColor);
+    position: absolute;
+    box-sizing: border-box;
+    border:.5px solid var(--infoboxbuttonbordercolor);
+    cursor:pointer;
+
+}
+
+div#graphrepbutton {
+    left: 100%;
+}
+div#sharetwitterbutton {
+    left: calc(100% + var(--widthandheightofinfoboxbuttons));
+}
+div#singledatabutton {
+    left: 100%;
+    top: var(--widthandheightofinfoboxbuttons);
+    display: flex;
+    flex-direction: column;
+}
+div#closeinfo {
+    left: calc(100% + var(--widthandheightofinfoboxbuttons));
+    top: var(--widthandheightofinfoboxbuttons);
+}
+
+i.material-icons {
+    color: var(--materialiconcolor);
+    transition:color 1s ease-in-out;
+    display:block;
+    display:flex;justify-content: center;align-items: center;
+    width:100%;height:100%;
+}
+i.material-icons:hover {
+    color: var(--materialiconhover);
+}
+#singledata{
+  height:100%;
+  display: flex;
+  flex-direction: column;
+}
+#singledata > div {
+    display:flex;
+}
+#singledata > div:nth-of-type(1){flex:3}
+#singledata > div:nth-of-type(2){flex:1;}
+.country-image {
+  flex:2;
+}
+.country-image > div {
+    width: 90%;
+    height: 80%;
+    margin: auto;
+    margin-top:10%;
+    position: relative;
+}
+.country-image > div::before{
+    content:"";
+    position: absolute;
+    top:0;left:0;right:0;bottom:0;
+    width:100%;height:100%;
+    background-color:rgba(5, 33, 51, 0.78);
+}
+.country-weather-details {
+  flex:3;
+}
+
+.country-weather-details > p:nth-of-type(1) {
+      font-size: 3em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0;
+}
+ .country-weather-details > p:nth-of-type(1) span {
+    font-weight: 100;
+    font-size: medium;
+}
+.country-weather-details > p:nth-of-type(2) {
+  text-transform: lowercase;
+  font-size: small;
+}
+#singledata img{
+  width:100px;
+}
+
+div#bottomlayer{
+  border-top-width: 5px;
+border-top-style: solid;
+border-image: linear-gradient(45deg, #072b07, #f1d406, #71de71) 56;
+}
+div#bottomlayer > div:nth-of-type(1) {
+  flex: 1;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+div#bottomlayer > div:nth-of-type(2) {
+    flex: 3;
+
+}
+
+div#bottomlayer > div:nth-of-type(2) > p {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: smaller;
+    margin-bottom:0;
+}
+
+div#bottomlayer > div:nth-of-type(2) > p:nth-of-type(1) {
+      font-weight: bolder;
+}
+div#bottomlayer > div:nth-of-type(2) > p:nth-of-type(2) {
+    margin-top:0;
+}
+div#bottomlayer > div:nth-of-type(3) {
+    flex: 2;
+}
+div#bottomlayer > div:nth-of-type(3) > p {
+    font-size: 12px;
+    text-align: right;
+    padding-right: 22px;
+    font-weight: 700;
+    margin: 0;
+}
+div#bottomlayer > div:nth-of-type(3) > p:nth-of-type(1), div#bottomlayer > div:nth-of-type(2) > p:nth-of-type(1) {
+  margin-top: 25px;
+}
+
+#graph{
+  width:100%;height:100%;
+  margin:0;padding:0;
+  display:flex;
+  justify-content: center;align-items: center;
+}
+#graph >   h3{
+    margin:0;
+  }
+svg{
+
+}
+text {
+    fill: white;
+}
+rect.bar:hover {
+    fill: #ff002d;
+}
+rect.bar {
+    fill: #635e56;
+}
+
+
+.bar-text-temp{
+  font-size:1vw;
+}
+.bar-text-date{
+  font-size:1vw;
+  text-transform:uppercase;
+}
