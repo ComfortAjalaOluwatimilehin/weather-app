@@ -6,28 +6,37 @@ class GraphRep extends Component{
         constructor(props){
           super(props)
           this.createBarChart = this.createBarChart.bind(this)
+          this.renderPlaceholder = this.renderPlaceholder.bind(this)
           this.state = {
-
+                complete:false
           }
 
         }
 
         componentDidMount(){
-          window.addEventListener("resize", ()=>{
-            //listen to resize
-
-                //this.node.innerHTML = ""
-                //this.createBarChart()
-
-          })
-              this.createBarChart()
+              this.state.complete ? this.createBarChart() : true
         }
         componentWillUpdate(newprops, newstate){
-              document.querySelector("svg").innerHTML = ""
+              //document.querySelector("svg").innerHTML = ""
         }
         componentDidUpdate(){
 
-              this.createBarChart()
+                this.state.complete ? this.createBarChart() : true
+        }
+        renderPlaceholder(){
+
+              return this.state.complete ? (
+                <div>
+                      <h1>We are working on it</h1>
+                </div>
+              ):
+              (
+                        <div id="graph">
+                          <svg ref={node => this.node = node}>
+                          </svg>
+                        </div>
+              )
+
         }
         createBarChart(){
 
@@ -93,12 +102,7 @@ class GraphRep extends Component{
 
         render(){
 
-          return(
-                    <div id="graph">
-                      <svg ref={node => this.node = node}>
-                      </svg>
-                    </div>
-          )
+          return      this.renderPlaceholder()
 
         }
 }
