@@ -27,18 +27,33 @@ div{
     top:5vh;left: 5vw;
     box-shadow:0px 30px 90px 30px grey;
 }
+@media screen and (max-width:499px){
+  #infobox{
+    width:90%;left:5%;
+  }
+}
+@media screen and (min-width:500px)  and (max-width:800px){
+  #infobox{
+    width:90%;
+    left:5%;
+  }
+}
 
+@media screen and (min-width:801px){
+  #infobox{
+    width:var(--infoboxWidth);
+    left: calc((100% - var(--infoboxWidth)) / 2);
+  }
+}
 #infobox{
       position:absolute;
       display:block;
-      width:var(--infoboxWidth);
       min-height: var(--infoboxHeight);
       max-height: 400px;
       background-color:white;
       text-align: center;
       color:white;
       top: calc((100% - var(--infoboxHeight)) / 2);
-      left: calc((100% - var(--infoboxWidth)) / 2);
       right:0;bottom:0;
       background-color: var(--infoboxColor);
       box-shadow: 0px 0px 87px 3px var(--infoboxShadow);
@@ -58,23 +73,48 @@ div{
     cursor:pointer;
 
 }
+@media screen and (max-width:800px){
+  div#graphrepbutton {
+    top:calc(-1 * var(--widthandheightofinfoboxbuttons));
+    left:var(--widthandheightofinfoboxbuttons);
+  }
 
-div#graphrepbutton {
-    left: 100%;
+  div#sharetwitterbutton {
+    top:calc(-2 * var(--widthandheightofinfoboxbuttons));
+    left:var(--widthandheightofinfoboxbuttons);
+  }
+  div#singledatabutton {
+    top:calc(-1 * var(--widthandheightofinfoboxbuttons));
+  }
+  div#closeinfo {
+  top:calc(-2 * var(--widthandheightofinfoboxbuttons));
+  }
 }
-div#sharetwitterbutton {
-    left: calc(100% + var(--widthandheightofinfoboxbuttons));
+
+
+
+@media screen and (min-width:801px){
+
+  div#graphrepbutton {
+      left: 100%;
+  }
+  div#sharetwitterbutton {
+      left: calc(100% + var(--widthandheightofinfoboxbuttons));
+  }
+  div#singledatabutton {
+      left: 100%;
+      top: var(--widthandheightofinfoboxbuttons);
+      display: flex;
+      flex-direction: column;
+  }
+  div#closeinfo {
+      left: calc(100% + var(--widthandheightofinfoboxbuttons));
+      top: var(--widthandheightofinfoboxbuttons);
+  }
+
+
 }
-div#singledatabutton {
-    left: 100%;
-    top: var(--widthandheightofinfoboxbuttons);
-    display: flex;
-    flex-direction: column;
-}
-div#closeinfo {
-    left: calc(100% + var(--widthandheightofinfoboxbuttons));
-    top: var(--widthandheightofinfoboxbuttons);
-}
+
 
 i.material-icons {
     color: var(--materialiconcolor);
@@ -94,17 +134,45 @@ i.material-icons:hover {
 #singledata > div {
     display:flex;
 }
+@media screen and (max-width:800px){
+  #singledata > div {
+    flex-direction: column;
+  }
+  #toplayer{
+
+  }
+  .country-image > div {
+      width: 50%;
+      height: 60%;
+  }
+}
+@media screen and (min-width:801px){
+  #singledata > div {
+
+  }
+  #toplayer{
+
+  }
+  .country-image > div {
+      width: 90%;
+      height: 60%;
+  }
+}
+
+
 #singledata > div:nth-of-type(1){flex:3}
 #singledata > div:nth-of-type(2){flex:1;}
 .country-image {
   flex:2;
+  JUSTIFY-CONTENT: CENTER;
+align-items: center;
+display: flex;
 }
 .country-image > div {
-    width: 90%;
-    height: 80%;
-    margin: auto;
     margin-top:10%;
+    margin: auto;
     position: relative;
+
 }
 .country-image > div::before{
     content:"";
@@ -135,6 +203,18 @@ i.material-icons:hover {
   width:100px;
 }
 
+@media screen and (min-width:801px){
+  div#bottomlayer > div:nth-of-type(3) > p:nth-of-type(1), div#bottomlayer > div:nth-of-type(2) > p:nth-of-type(1) {
+    margin-top: 25px;
+  }
+}
+
+@media screen and (max-width:800px){
+div#bottomlayer > div:nth-of-type(1){
+  padding-top:1vh;
+}
+}
+
 div#bottomlayer{
   border-top-width: 5px;
 border-top-style: solid;
@@ -148,6 +228,7 @@ div#bottomlayer > div:nth-of-type(1) {
   align-items: center;
   flex-direction: column;
 }
+
 div#bottomlayer > div:nth-of-type(2) {
     flex: 3;
 
@@ -177,7 +258,7 @@ div#bottomlayer > div:nth-of-type(3) > p {
     margin: 0;
 }
 div#bottomlayer > div:nth-of-type(3) > p:nth-of-type(1), div#bottomlayer > div:nth-of-type(2) > p:nth-of-type(1) {
-  margin-top: 25px;
+
 }
 
 #graph{
@@ -193,7 +274,7 @@ svg{
 
 }
 text {
-    fill: white;
+    text-transform: uppercase;
 }
 rect.bar:hover {
     fill: #ff002d;
@@ -207,6 +288,6 @@ rect.bar {
   font-size:1vw;
 }
 .bar-text-date{
-  font-size:1vw;
+  font-size:small;
   text-transform:uppercase;
 }

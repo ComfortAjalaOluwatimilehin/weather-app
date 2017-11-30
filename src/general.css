@@ -3,5 +3,9 @@
     --infoboxWidth:50%;
     --infoboxHeight:300px;
     --widthandheightofinfoboxbuttons:50px;
-
+    --phoneMin:00;
+    --phoneMax:499;
+    --tabletMin:500;
+    --tabletMax:800;
+    --desktopMin:801;
 }
